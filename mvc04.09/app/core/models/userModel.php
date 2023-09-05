@@ -13,15 +13,15 @@ function findAllUsers(){
             // Stockage du résultat de l'exécution dans la variable $execution.
             $execution = $pdoConn->query($query);
 
-            if($exec){
+            if($execution){
 
                 // Si la requête s'est exécutée sans accrocs :
                 // Stockage de l'ensemble des résultats de la requête dans la variable $results
-                $resultats = $exec->fetchAll(PDO::FETCH_ASSOC);
+                $results = $execution->fetchAll(PDO::FETCH_ASSOC);
             }
         }
 
-        return $resultats;
+        return $results;
     }
 
     function findUserBy(int $id){
@@ -35,12 +35,12 @@ function findAllUsers(){
 
             // Execution de la requête sur la base de données.
             // Stockage du résultat de l'exécution dans la variable $execution.
-            $exec = $pdoConn->query($query);
+            $execution = $pdoConn->query($query);
 
-            if($exec){
+            if($execution){
                 // Si la requête qui permet de récupérer les informations du livre souhaité s'est exécutée sans accrocs :
                 // On stocke les données du livre dans une variable (utilisée ultérieurement pour être affichées dans les champs).
-                $user = $exec->fetch(PDO::FETCH_ASSOC);
+                $user = $execution->fetch(PDO::FETCH_ASSOC);
             }
             // Si la requête a rencontré une erreur lors de son execution
             else{
@@ -50,14 +50,14 @@ function findAllUsers(){
         return $user;
     }
 
-    function updateUser($nom, $prenom, $email, $pwd, $role, $id){
+    function updateFirst($nom, $prenom, $email, $pwd, $id){
         require_once('dbConnect.php');
         
         // Contrôle de l'état de la connexion à la base de données
         if($pdoConn){
 
             // Stockage de la requête d'ajout au sein de la variable $query.
-            $query = "UPDATE users SET nom='$nom', prenom='$prenom', email='$email', pwd='$pwd', role='$role' WHERE id=$id";
+            $query = "UPDATE users SET nom='$nom', prenom='$prenom', email='$email', pwd='$pwd' WHERE id=$id";
 
             // Execution de la requête sur la base de données.
             // Stockage du résultat de l'exécution dans la variable $execution.
@@ -103,13 +103,13 @@ function findAllUsers(){
         }
     }
 
-    function addOneUser($nom, $prenom, $email, $pwd, $role){
+    function addOneUser($nom, $prenom, $email, $pwd){
         // Récupération de la connexion à la base de données
         require_once("dbConnect.php");
         // Si la connexion à la base de données est effective
         if($pdoConn){
             // Stockage de la requête d'ajout au sein de la variable $query.
-            $query = "INSERT INTO users (nom, prenom, email, pwd, role) VALUES ('$nom', '$prenom', '$email', '$pwd', '$role')";
+            $query = "INSERT INTO users (nom, prenom, email, pwd) VALUES ('$nom', '$prenom', '$email', '$pwd')";
 
             // Execution de la requête sur la base de données.
             // Stockage du résultat de l'exécution dans la variable $execution.

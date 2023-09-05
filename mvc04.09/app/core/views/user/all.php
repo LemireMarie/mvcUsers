@@ -1,5 +1,5 @@
 <?php 
-    $pageTitle = "Nos utilisateurs";
+    $pageUser = "Nos utilisateurs";
 ?>
 
 <h1>Les ouvrages de notre bibliothèque&nbsp;:</h1>
@@ -13,9 +13,9 @@
             <th>Supprimer</th>
         </thead>
         <tbody>
-            <?php foreach($resultats as $user){ ?>
+            <?php foreach($results as $user){ ?>
                 <tr>
-                    <td><?= $user["name"]; ?></td>
+                    <td><?= $user["nom"]; ?></td>
                     <td><?= $user["prenom"]; ?></td>
                     <td><?= $user["email"]; ?></td>
                     <td>

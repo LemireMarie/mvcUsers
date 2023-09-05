@@ -3,7 +3,7 @@
 
 function all(){
         require_once('./app/core/models/userModel.php');
-        $results = findAll();
+        $results = findAllUsers();
         require_once('./app/core/views/user/all.php');
     }
 
@@ -11,39 +11,40 @@ function all(){
 function updateOne(){
         require_once('./app/core/models/userModel.php');
         // à vérifier
-        update(htmlentities($_POST['nom']), htmlentities($_POST['description']), $_POST['prix'], $_POST['userID']);
+        updateFirst($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pwd'], $_POST['userID']);
     }
 
 
-function showUpdateForm(){
+function userUpdateForm(){
         require_once('./app/core/models/userModel.php');
-        $book = findBy($_POST['updateID']);
+        $user = findUserBy($_POST['updateID']);
         require_once('./app/core/views/user/update.php');
   
     }
 
 
-function delete(){
+function deleteUser(){
 
         require_once('./app/core/models/userModel.php');
-        deleteBy($_POST["deleteID"]);
+        deleteUserBy($_POST["deleteID"]);
 
     }
 
-function add(){
+function userAdd(){
         
         require_once('./app/core/models/userModel.php');
 
         // a vérifer avec les bonnes variables
-        $titre = htmlentities($_POST["titre"]);
-        $desc = htmlentities($_POST["description"]);
-        $prix = $_POST["prix"];
+        $nom = ($_POST["nom"]);
+        $prenom = ($_POST["prenom"]);
+        $email = $_POST["email"];
+        $pwd = $_POST["pwd"];
     
-        addOne($titre, $desc, $prix);
+        addOneUser($nom, $prenom, $email, $pwd);
         
     }
 
-function showAddForm(){
+function userAddForm(){
 
             require_once('./app/core/views/user/add.php');
 
