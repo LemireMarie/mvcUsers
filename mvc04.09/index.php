@@ -9,6 +9,8 @@
      le controlleur et l'action adéquate.
 !-->
 <p>Cliquez <a href="index.php?controller=book&action=all">ici</a> pour accéder à notre bibliothèque</p>
+<p>Cliquez <a href="index.php?controller=user&action=all">ici</a> pour accéder à nos utilisateurs</p>
+
 <?php
     require_once("./app/core/views/footer.php");
 ?>
