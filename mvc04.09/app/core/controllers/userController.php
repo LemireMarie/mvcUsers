@@ -46,7 +46,13 @@ function userAdd(){
 
 function userAddForm(){
 
-            require_once('./app/core/views/user/add.php');
+        require_once('./app/core/views/user/add.php');
 
         }
+        
+/** @todo function connection aux sessions */
+function connect(){
+
+    require_once('./app/core/views/user/connet.php');
+}
     ?>
