@@ -10,7 +10,7 @@
 !-->
 <p>Cliquez <a href="index.php?controller=book&action=all">ici</a> pour accéder à notre bibliothèque</p>
 <p>Cliquez <a href="index.php?controller=user&action=all">ici</a> pour accéder à nos utilisateurs</p>
-<p>Cliquez <a href="index.php?controller=user&action=connect"></a> pour accéder à la page de connexion</p>
+<p>Cliquez <a href="index.php?controller=user&action=connect">ici</a> pour accéder à la page de connexion</p>
 <?php
     require_once("./app/core/views/footer.php");
 ?>
