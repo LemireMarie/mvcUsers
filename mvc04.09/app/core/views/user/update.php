@@ -1,9 +1,10 @@
 <?php
     $pageUser = "Modification d'un utilisateur";
 ?>
-
+<!-- Affichage du titre principal -->
 <h1>Modification d'un utilisateur <?= $user["nom"] ?>&nbsp;:</h1>
 
+<!-- Affichage du formulaire de MAJ -->
 <form action="index.php?controller=user&action=updateOne" method="POST">
     <input type="text" name="nom" placeholder="Nom" value="<?= $user["nom"] ?>">
     <input type="text" name="prenom" placeholder="Nom" value="<?= $user["prenom"] ?>">
