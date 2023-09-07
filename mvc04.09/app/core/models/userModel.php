@@ -122,3 +122,17 @@ function findAllUsers(){
             }
         }
     }
+
+    function userConnect($email, $pwd){
+        require_once("dbConnect.php");
+        if($pdoConn){
+            $query = "SELECT * FROM users where email='$email' and pwd='$pwd'";
+            $execution= $pdoConn->query($query);
+
+            if($execution){
+                $result = $execution->fetch(PDO::FETCH_ASSOC);
+            return $result;
+
+            }
+        }
+    }

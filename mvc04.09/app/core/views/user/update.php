@@ -1,5 +1,7 @@
 <?php
+session_start();
     $pageUser = "Modification d'un utilisateur";
+    if(!empty($_SESSION) && $_SESSION["connected"]){ 
 ?>
 <!-- Affichage du titre principal -->
 <h1>Modification d'un utilisateur <?= $user["nom"] ?>&nbsp;:</h1>
@@ -13,3 +15,9 @@
     <input type="hidden" value="<?= $user["id"]; ?>" name="userID">
     <input type="submit" value="Envoyer">
 </form>
+<?php
+    }
+else{
+    header('Location: ./app/core/views/all.php');
+}
+?>

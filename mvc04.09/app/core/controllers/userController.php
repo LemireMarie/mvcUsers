@@ -56,9 +56,20 @@ function userAddForm(){
         }
         
 /** @todo function connection aux sessions */
-function connect(){
+function connectForm(){
 
     require_once('./app/core/views/user/connect.php');
+    
+}
+
+function connect(){
+    require_once('./app/core/models/userModel.php');
+    $email = $_POST['email'];
+    $pwd = $_POST['pwd'];
+    $userConnect = userConnect($email, $pwd);
+    setcookie("cookie", "connected", time()+60, "/");
+    header ("Location: index.php?controller=user&action=all");
+
 }
 
 function inscription(){

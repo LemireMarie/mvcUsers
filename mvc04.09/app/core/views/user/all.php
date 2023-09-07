@@ -1,5 +1,7 @@
 <?php 
+session_start();
     $pageUser = "Nos utilisateurs";
+
 ?>
 <!-- Affichage du titre principal -->
 <h1>Les ouvrages de notre bibliothèque&nbsp;:</h1>
@@ -21,7 +23,12 @@
                     <td><?= $user["nom"]; ?></td>
                     <td><?= $user["prenom"]; ?></td>
                     <td><?= $user["email"]; ?></td>
+                    <?php
+
+                        if(!empty($_COOKIE) && $_COOKIE["cookie"] === "connected"){
+                            ?>
                     <td>
+
                         <!-- Formulaire pour la mise à jour de l'utilisateur -->
                         <form method="POST" action="index.php?controller=user&action=userUpdateForm">
                             <input type="hidden" value="<?= $user["id"]; ?>" name="updateID">
@@ -35,10 +42,12 @@
                             <input type="submit" value="🗑️">
                         </form>
                     </td>
+                    <?php } ?>
                 </tr>
-            <?php } ?>
+            
         </tbody>
     </table>
-
+    <?php
+}?>
     
     <p><a href="index.php?controller=user&action=userAddForm" title="Ajouter un utilisateur">Ajouter un utilisateur</a></p>

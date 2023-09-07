@@ -1,5 +1,8 @@
 <?php
+session_start();
 $pageUser = "Ajout d'un utilisateur";
+if(!empty($_SESSION) && $_SESSION["connected"]){ 
+
 ?>
 <!-- Affichage du titre principal -->
 <h1>Ajout d'un utilisateur&nbsp;:</h1>
@@ -13,3 +16,9 @@ $pageUser = "Ajout d'un utilisateur";
     <input type="password" name="pwd">
     <input type="submit" value="Envoyer">
 </form>
+<?php
+}
+else{
+    header('Location: ./app/core/views/all.php');
+}
+?>

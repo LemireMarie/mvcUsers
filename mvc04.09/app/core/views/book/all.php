@@ -18,6 +18,10 @@ $pageTitle = "Notre bibliothèque";
                 <td><?= $book["name"]; ?></td>
                 <td><?= $book["description"]; ?></td>
                 <td><?= $book["price"]; ?></td>
+                <?php
+
+                        if(!empty($_COOKIE) && $_COOKIE["cookie"] === "connected"){
+                            ?>
                 <td>
                     <form method="POST" action="index.php?controller=book&action=showUpdateForm">
                         <input type="hidden" value="<?= $book["id"]; ?>" name="updateID">
@@ -30,6 +34,9 @@ $pageTitle = "Notre bibliothèque";
                         <input type="submit" value="🗑️">
                     </form>
                 </td>
+                <?php
+                        }
+                        ?>
             </tr>
         <?php } ?>
     </tbody>
