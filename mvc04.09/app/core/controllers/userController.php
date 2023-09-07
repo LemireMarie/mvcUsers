@@ -60,4 +60,9 @@ function connect(){
 
     require_once('./app/core/views/user/connect.php');
 }
+
+function inscription(){
+
+    require_once('./app/core/views/user/add.php');
+}
     ?>
