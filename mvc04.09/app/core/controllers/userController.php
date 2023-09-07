@@ -58,6 +58,6 @@ function userAddForm(){
 /** @todo function connection aux sessions */
 function connect(){
 
-    require_once('./app/core/views/user/connet.php');
+    require_once('./app/core/views/user/connect.php');
 }
     ?>

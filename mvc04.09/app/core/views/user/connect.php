@@ -1,3 +1,7 @@
+<?php
+$pageUser = "Page de connexion";
+?>
+
 <h2>Formulaire de connexion :</h2>
 <!--ACTION à modifier -->
 <form action="index.php?controller=user&action=connect" method="POST">
