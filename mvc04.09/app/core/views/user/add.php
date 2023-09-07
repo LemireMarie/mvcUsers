@@ -19,6 +19,6 @@ if(!empty($_SESSION) && $_SESSION["connected"]){
 <?php
 }
 else{
-    header('Location: ./app/core/views/all.php');
+    header('Location: ./app/core/views/user/all.php');
 }
 ?>
